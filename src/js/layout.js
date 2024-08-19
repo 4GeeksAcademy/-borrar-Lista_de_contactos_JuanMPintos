@@ -6,9 +6,7 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
-
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+import ContactCard from "./component/ContactCard";
 
 //create your first component
 const Layout = () => {
@@ -18,18 +16,13 @@ const Layout = () => {
 
 	return (
 		<div>
-			<BrowserRouter basename={basename}>
-				<ScrollToTop>
-					<Navbar />
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} />
-						<Route path="*" element={<h1>Not found!</h1>} />
-					</Routes>
-					<Footer />
-				</ScrollToTop>
-			</BrowserRouter>
+			<BrowserRouter basename={basename} />
+			<Routes>
+				<Route path="/contactos" element={<contactos />} />
+				{<Route path="/formulario" element />}
+				<Route path="*" element={<h1>Not found!</h1>} />
+			</Routes>
+		<BrowserRouter />
 		</div>
 	);
 };
